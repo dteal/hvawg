@@ -16,7 +16,7 @@ This circuit was made with the following constraints in mind:
 - This is primarily intended to drive small capacitive loads, on the order of tens of picofarads with maybe megaohms of resistance. Note that oscilloscope input impedances are also about this much.
 - Arbitrary waveform outputs between -100V and +100V and up to 1MHz. Either of those constraints is easy; together they are nontrivial. The ADHV4702 opamp can reach those voltages but only up to about 20kHz, for example.
 - In order to have multiple outputs, multiple boards should be able to be daisy chained together. The final design allows up to four boards to be daisy chained and driven off a single 4-wire serial connection (three signals plus GND), for an average of 0.75 input signals per board, to drive as many boards as possible off of a single FPGA or other controller.
-- Low cost. If tens of these boards are required for an application, each one should individually be cheap. This resulted in, e.g., five separate power supply inputs. The final part cost per board is around $20.
+- Low cost. If tens of these boards are required for an application, each one should individually be cheap. This resulted in, e.g., five separate power supply inputs. The final part cost per board is around $20. Note a 2-layer PCB was used to decrease manufacturing time for external reasons; switching a 4-layer PCB or better is probably a good idea to allow better EMI mitigation techniques.
 - Mass production. The circuit should not rely on manually matched transistors for a carefully-balanced amplifier. Instead, the output uses current mirrors that are cheaply implemented with off-the-shelf silicon power MOSFETs and don't require closed loop control on the output (which is not easily achieved at 1MHz at those voltages due to transistor switching time). (There is still manual tuning of amplifier gain and bias in order to minimize cost and accuracy, but this only has to be done once per board.)
 - Robustness. The output can probably survive a short-circuit (untested).
 
@@ -152,6 +152,7 @@ EMI issue:
 
 Improvements:
 - The first iteration used a 25W chassis-mount power resistor, which worked fine without heatsinking but needed manual wiring to the PCB. To avoid the inconvenience of having a component not directly mounted to the PCB, future iterations might consider using a TO-220 package power resistor and heatsinking instead (e.g., AP836 10K J, https://www.digikey.com/en/products/detail/ohmite/AP836-10K-J/5878547 ).
+- A 2-layer PCB was used to decrease manufacturing time for external reasons; switching a 4-layer PCB or better is probably a good idea to allow better EMI mitigation techniques.
 
 ## Images
 
