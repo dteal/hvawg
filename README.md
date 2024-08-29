@@ -120,7 +120,7 @@ The final output from R21 and Q1 can be connected to any one of outputs 1 throug
 
 Four daisy-chained boards can thus be attached to separate outputs.
 
-## Bill of materials
+## Assembly and Testing
 
 ### Part choice notes
 
