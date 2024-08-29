@@ -112,6 +112,16 @@ Four daisy-chained boards can thus be attached to separate outputs.
 
 - Hand-soldered components were added manually afterward (not through JLCPCB) to reduce order lead time.
 
+### Assembly notes
+
+Hand assembly of the through hole components takes about 20 minutes per board.
+
+Be sure to bend the legs of the PMOS MOSFET to switch its source and drain to fix a board error (see "Errata" section below).
+
+Header pins are ordered in lenths of 18 to reduce costs. These should be manually cut to size (or ordered in the right size to begin with).
+
+The power resistor R21 needs spare wires soldered on to fit the PCB footprint. The resistor hangs off the edge of the board so it can be bolted to a heatsink. It's possible these spare wires increase EMI emissions. Future board iterations could switch to a TO-220 package power resistor, matching NMOS transistor Q1, which is also at the edge of the board for easy heatsink mounting.
+
 ### SMD components (JLCPCB)
 
 | Part no.          | QTY | Cost | JLC type | Note                      | URL                                                                    |
@@ -145,7 +155,7 @@ Four daisy-chained boards can thus be attached to separate outputs.
 ## Errata and Future Improvements
 
 Board error:
-- The PMOS transistor source and drain pins are switched on the PCB. This can be fixed when hand-soldering by bending the MOSFET legs to fit the right holes.
+- The PMOS transistor (Q3) source and drain pins are switched on the PCB. This can be fixed when hand-soldering by bending the MOSFET legs to fit the right holes. Not doing this causes excessive current through R17, burning it out, with possible additional damage to RV1.
 
 EMI issue:
 - I suspect this board might sometimes generate nontrivial RF noise. Qualitative tests show unshielded wires on the output (or maybe even the wires connecting the through-hole power resistor) generate an undesired signal. Thus, be very careful with board use. Future board iterations should fix this issue by, e.g., more careful PCB trace design and changing the signal output connector to a shielded RF SMA connector or similar.
