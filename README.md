@@ -162,15 +162,15 @@ Note the hottest parts of the circuit are the power resistor and MOSFET near the
 
 An external function generator was used to generate test waveforms by disconnecting the DAC via jumper JP3.
 
-![frequency response test setup](/media/thermal-camera-view.jpg)
+![frequency response test setup](/media/single-board-test.jpg)
 
 ### Daisychain test
 
-![Two boards generating 200Vpp 1kHz waves](/media/pcb-daisychain-test.png)
+![Two boards generating 200Vpp 1kHz waves](/media/pcb-daisychain-test.jpg)
 
 ### PCB frame concept
 
-Heatsinks, external wires, and control board not included.
+Heatsinks, external wires, and control board not included. Note a large flat heatsink is easy to add along the output power resistors and MOSFETs.
 
 ![PCB frame concept](/media/frame.png)
 
