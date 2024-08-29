@@ -49,6 +49,8 @@ These should be turned on in the following order:
 
 LEDs indicate when the three 12V power supplies are on.
 
+The power supplies used for testing were Wanptek WPS series supplies (160V 2A and 30V 10A) from eBay.
+
 The +/-100V high voltage supplies are used to drive the output and need to be capable of the full board power draw (potentially 10W each, depending on component selection and voltage output).
 
 The +/-12V supplies are used to drive the DAC and intermediate amplifier opamps. These are not generated from the +/-100V because a linear regulator would be too lossy and a buck regulator would make the board significantly more complex and expensive.
