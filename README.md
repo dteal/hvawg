@@ -14,6 +14,7 @@ Specifications:
 - up to four boards can be daisy-chained
 - quiescent power consumption around 5 to 10W (b/c inefficient class A output stage)
 - efficiency ≈1% (b/c inefficient class A output stage in open loop control)
+- boards cost about $20 each and use only standard off-the-shelf parts
 
 Measured frequency response:
 
