@@ -142,6 +142,25 @@ Header pins are ordered in lenths of 18 to reduce costs. These should be manuall
 
 The power resistor R21 needs spare wires soldered on to fit the PCB footprint. The resistor hangs off the edge of the board so it can be bolted to a heatsink. It's possible these spare wires increase EMI emissions. Future board iterations could switch to a TO-220 package power resistor, matching NMOS transistor Q1, which is also at the edge of the board for easy heatsink mounting.
 
+### Bringup notes
+
+After the board is assembled, the following bringup/test strategy seems to work well:
+
+- Start with jumpers JP3, JP4, and JP6 disconnected. Connect one of JP8, JP9, JP10, JP11 to choose output.
+- Test DAC. Apply +12V then -12V supply (if +12V but not -12V is applied too long, DAC may heat up). Confirm LEDs light up. Add DAC input signal. Use thermal camera to confirm no major hot spots (NE5532 opamps at 35°C, LEDs at 32°C, not much else).
+- Confirm DAC output is good (TP2/JP3 via oscilloscope). Full scale output is around 2.8Vpp.
+- Test high voltage monitor circuit. Attach +120V supply, confirm high voltage monitor output (TP3 via multimeter) is stable and good and in the 1 to 3V range. R12 should rise in temperature (maybe 36°C) due to its 200mW power dissipation.
+- Turn off power supplies and add jumpers JP3, JP6.
+- Test level shifter. Apply +12V, -12V, +120V, and -120V. Confirm temperatures good (no significant change from before).
+- Confirm DAC and monitor outputs remain good.
+- Confirm level shifter output is sine wave (measure JP4 oscilloscope with AC coupling).
+- Turn supplies off again, add jumper JP4.
+- Test final output stage. Turn supplies on, including +12V on negative rail this time (additional LED should come on).
+- Confirm only thermal change is output resistor and MOSFET heating to maybe 60-80°C (if supplies are +/-120V).
+- Confirm final board output (measured at TP5, output port, or resistor lead via DC-coupled multimeter) is expected signal. Might be DC shifted and cut off at high/low rail.
+- Adjust RV2 to center output wave at 0V.
+- Adjust RV1 to set gain to get about +/-100V output. Can set to +/-128V full-scale output so that a 1 bit input change results in 1V output change.
+
 ### SMD components (JLCPCB)
 
 | Part no.          | QTY | Cost | JLC type | Note                      | URL                                                                    |
