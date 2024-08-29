@@ -8,10 +8,12 @@ WARNING: THIS BOARD IS DANGEROUS. IT USES SOMEWHAT HIGH VOLTAGES AT SOMEWHAT HIG
 
 Specifications:
 - serial input at 3.3V or 5V up to maybe 100MHz, intended to be driven by FPGA
-- 8-bit onboard DAC (with +/-1V output)
+- 8-bit onboard DAC (with +/-1V output) (ENOB not measured but probably closer to 6 bits)
 - amplifier with 100x gain gives outputs ±150V
 - maximum output frequency is in the 100kHz range varying with load and voltage
 - up to four boards can be daisy-chained
+- quiescent power consumption around 5 to 10W (b/c inefficient class A output stage)
+- efficiency ≈1% (b/c inefficient class A output stage in open loop control)
 
 Measured frequency response:
 
@@ -26,6 +28,7 @@ This circuit was made with the following constraints in mind:
 - Arbitrary waveform outputs between -100V and +100V and up to 1MHz. Either of those constraints is easy; together they are nontrivial. The ADHV4702 opamp can reach those voltages but only up to about 20kHz, for example.
 - In order to have multiple outputs, multiple boards should be able to be daisy chained together. The final design allows up to four boards to be daisy chained and driven off a single 4-wire serial connection (three signals plus GND), for an average of 0.75 input signals per board, to drive as many boards as possible off of a single FPGA or other controller.
 - Low cost. If tens of these boards are required for an application, each one should individually be cheap. This resulted in, e.g., five separate power supply inputs. The final part cost per board is around $20. Note a 2-layer PCB was used to decrease manufacturing time for external reasons; switching a 4-layer PCB or better is probably a good idea to allow better EMI mitigation techniques.
+- DAC accuracy was not a priority. The original application needed less than 6 bits of resolution.
 - Mass production. The circuit should not rely on manually matched transistors for a carefully-balanced amplifier. Instead, the output uses current mirrors that are cheaply implemented with off-the-shelf silicon power MOSFETs and don't require closed loop control on the output (which is not easily achieved at 1MHz at those voltages due to transistor switching time). (There is still manual tuning of amplifier gain and bias in order to minimize cost and accuracy, but this only has to be done once per board.)
 - Robustness. The output can probably survive a short-circuit (untested).
 
