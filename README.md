@@ -1,6 +1,6 @@
 # High Voltage Arbitrary Waveform Generator
 
-This is the first iteration of a modular arbitrary waveform generator intended to generate possibly tens of separate ±100V 1MHz signals for small loads.
+This is the first iteration of a modular arbitrary waveform generator intended to generate possibly tens of separate ±100V 1MHz signals for small capacitive loads, e.g., electrostatic actuators or ion traps.
 
 WARNING: THIS BOARD IS DANGEROUS. IT USES SOMEWHAT HIGH VOLTAGES AT SOMEWHAT HIGH POWER. DO NOT BUILD, TEST, OR USE WITHOUT BOTH CAUTION AND KNOWING WHAT YOU ARE DOING. No guarantees or warranty or support is provided, etc.
 
@@ -19,6 +19,17 @@ This circuit was made with the following constraints in mind:
 - Low cost. If tens of these boards are required for an application, each one should individually be cheap. This resulted in, e.g., five separate power supply inputs. The final part cost per board is around $20.
 - Mass production. The circuit should not rely on manually matched transistors for a carefully-balanced amplifier. Instead, the output uses current mirrors that are cheaply implemented with off-the-shelf silicon power MOSFETs and don't require closed loop control on the output (which is not easily achieved at 1MHz at those voltages due to transistor switching time). (There is still manual tuning of amplifier gain and bias in order to minimize cost and accuracy, but this only has to be done once per board.)
 - Robustness. The output can probably survive a short-circuit (untested).
+
+The amplifier looks something like the following:
+
+![frequency response curve](/media/circuit.png)
+
+### Alternatives
+
+Previous but insufficient approaches to similar problems include:
+- Using a high-voltage op-amp, e.g., the ADHV4702 <https://www.analog.com/en/products/adhv4702-1.html>. This can achieve the +/-100V range but only up to a bit over 20kHz.
+- Resonant circuits. Common in ion traps and particle accelerators, but only generate a single specific frequency.
+- Discrete amplifiers of assorted topologies, e.g., <https://doi.org/10.1063/1.1988272> or <https://doi.org/10.1063/1.3622750> or <https://www.radiolocman.com/shem/schematics.html?di=637101>. Note also <https://www.falco-systems.com/High_voltage_amplifier_WMA-300.html>. Commonly used for piezoelectric actuator drives, ultrasound, MEMS, or ion traps. These amplifiers achieve the required voltage and frequency specifications but are expensive and/or complex and rely on obscure components.
 
 ### Power input
 
