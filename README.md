@@ -1,6 +1,6 @@
 # High Voltage Arbitrary Waveform Generator
 
-This is the first iteration of a modular arbitrary waveform generator intended to generate possibly tens of separate ±100V 1MHz signals for small capacitive loads, e.g., electrostatic actuators or ion traps.
+This is the first draft iteration of a modular arbitrary waveform generator intended to generate possibly tens of separate ±100V 1MHz signals for small capacitive loads, e.g., electrostatic actuators or ion traps.
 
 WARNING: THIS BOARD IS DANGEROUS. IT USES SOMEWHAT HIGH VOLTAGES AT SOMEWHAT HIGH POWER. DO NOT BUILD, TEST, OR USE WITHOUT BOTH CAUTION AND KNOWING WHAT YOU ARE DOING. No guarantees or warranty or support is provided, etc.
 
