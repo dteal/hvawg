@@ -7,10 +7,11 @@ WARNING: THIS BOARD IS DANGEROUS. IT USES SOMEWHAT HIGH VOLTAGES AT SOMEWHAT HIG
 ![3D render of PCB](/media/pcb-3d.png)
 
 Specifications:
-- serial input at 3.3V or 5V up to maybe 100MHz, intended to be driven by FPGA
+- serial data input at 3.3V or 5V up to maybe 100MHz, intended to be driven by FPGA
 - 8-bit onboard DAC (with +/-1V output) (ENOB not measured but probably closer to 6 bits)
 - amplifier with 100x gain gives outputs ±150V
 - maximum output frequency is in the 100kHz range varying with load and voltage
+- maximum designed load is tens of picofarads and megaohms of resistance
 - up to four boards can be daisy-chained
 - quiescent power consumption around 5 to 10W (b/c inefficient class A output stage)
 - efficiency ≈1% (b/c inefficient class A output stage in open loop control)
