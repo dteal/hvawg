@@ -112,6 +112,10 @@ Four daisy-chained boards can thus be attached to separate outputs.
 
 - Hand-soldered components were added manually afterward (not through JLCPCB) to reduce order lead time.
 
+### Manufacturing notes
+
+These boards were designed in KiCad and ordered from JLCPCB with help from the excellent kicad-jlc-pcb tools plugin <https://github.com/bouni/kicad-jlcpcb-tools>.
+
 ### Assembly notes
 
 Hand assembly of the through hole components takes about 20 minutes per board.
